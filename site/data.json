@@ -1,74 +1,150 @@
 {
-  "generated_at": "2026-03-15T08:31:00",
-  "date": "2026-03-15",
-  "date_display": "Sunday, 15 March 2026",
+  "generated_at": "2026-03-17T02:24:28",
+  "date": "2026-03-17",
+  "date_display": "Tuesday, 17 March 2026",
   "edition": "Morning Edition",
-
+  "week_number": 12,
+  "site_url": "https://prodesk-research.github.io",
   "bias": {
-    "label": "MILDLY BULLISH OPEN",
+    "label": "BULLISH OPEN",
     "code": "BULL",
-    "score": 0.38,
-    "confidence": 67,
-    "emoji": "🟢"
+    "score": 0.7,
+    "confidence": 81,
+    "emoji": "\ud83d\udfe2"
   },
-
   "global_cues": {
-    "gift_nifty":    { "value": "24,082",  "chg": 0.34,  "note": "Primary gap indicator" },
-    "india_vix":     { "value": "14.2",    "chg": -3.1,  "note": "Calm — below caution threshold" },
-    "sp500":         { "value": "5,628",   "chg": -0.04, "note": "US flat close" },
-    "nasdaq":        { "value": "17,842",  "chg": 0.22,  "note": "Tech resilient" },
-    "dow":           { "value": "43,210",  "chg": -0.12, "note": "" },
-    "nikkei":        { "value": "38,720",  "chg": 0.61,  "note": "Japan positive" },
-    "hangseng":      { "value": "19,840",  "chg": 0.18,  "note": "HK mild positive" },
-    "dax":           { "value": "22,480",  "chg": 0.09,  "note": "Europe stable" },
-    "crude":         { "value": "$74.10",  "chg": 0.21,  "note": "No inflation concern" },
-    "dxy":           { "value": "103.2",   "chg": -0.18, "note": "Weak USD — EM positive" },
-    "gold":          { "value": "$2,183",  "chg": 0.31,  "note": "No risk-off signal" },
-    "usdinr":        { "value": "83.85",   "chg": 0.04,  "note": "INR stable" }
+    "gift_nifty": {
+      "value": "\u2014",
+      "chg": 1.11,
+      "note": "Primary gap indicator"
+    },
+    "india_vix": {
+      "value": "\u2014",
+      "chg": 0.0,
+      "note": "Key risk signal"
+    },
+    "sp500": {
+      "value": "\u2014",
+      "chg": 1.01,
+      "note": "US markets"
+    },
+    "nasdaq": {
+      "value": "\u2014",
+      "chg": 0.0,
+      "note": "Tech index"
+    },
+    "crude": {
+      "value": "\u2014",
+      "chg": -2.57,
+      "note": "Inflation signal"
+    },
+    "dxy": {
+      "value": "\u2014",
+      "chg": 0.0,
+      "note": "USD strength"
+    },
+    "gold": {
+      "value": "\u2014",
+      "chg": 0.0,
+      "note": "Risk-off signal"
+    },
+    "usdinr": {
+      "value": "\u2014",
+      "chg": 0.0,
+      "note": "INR stability"
+    },
+    "nikkei": {
+      "value": "\u2014",
+      "chg": -0.13,
+      "note": "Japan"
+    },
+    "hangseng": {
+      "value": "\u2014",
+      "chg": 1.45,
+      "note": "Hong Kong"
+    },
+    "dow": {
+      "value": "\u2014",
+      "chg": 0.0,
+      "note": "US blue chip"
+    }
   },
-
   "expiry": {
-    "nifty":     { "phase": "EXPIRY WEEK", "dte": 2, "date": "17 Mar", "schedule": "Weekly · Tuesday",          "icon": "💰" },
-    "sensex":    { "phase": "FRESH SERIES","dte": 5, "date": "19 Mar", "schedule": "Weekly · Thursday (BSE)",    "icon": "🎯" },
-    "banknifty": { "phase": "NEAR EXPIRY", "dte": 4, "date": "31 Mar", "schedule": "Monthly · Last Tuesday",    "icon": "📐" },
-    "finnifty":  { "phase": "NEAR EXPIRY", "dte": 4, "date": "31 Mar", "schedule": "Monthly · Last Tuesday",    "icon": "📐" }
+    "nifty": {
+      "phase": "NEAR EXPIRY",
+      "dte": 7,
+      "date": "24 Mar",
+      "icon": "\ud83d\udcd0",
+      "schedule": "Weekly \u00b7 Tuesday"
+    },
+    "sensex": {
+      "phase": "EXPIRY WEEK",
+      "dte": 2,
+      "date": "19 Mar",
+      "icon": "\ud83d\udcb0",
+      "schedule": "Weekly \u00b7 Thursday (BSE)"
+    },
+    "banknifty": {
+      "phase": "MID SERIES",
+      "dte": 14,
+      "date": "31 Mar",
+      "icon": "\ud83d\udcca",
+      "schedule": "Monthly \u00b7 Last Tuesday"
+    },
+    "finnifty": {
+      "phase": "MID SERIES",
+      "dte": 14,
+      "date": "31 Mar",
+      "icon": "\ud83d\udcca",
+      "schedule": "Monthly \u00b7 Last Tuesday"
+    }
   },
-
   "walls": {
-    "nifty":     { "spot": 24000, "resistance": 24200, "support": 23800, "max_pain": 24050, "pcr": 1.22 },
-    "sensex":    { "spot": 79200, "resistance": 79500, "support": 78800, "max_pain": 79100, "pcr": 1.18 },
-    "banknifty": { "spot": 51200, "resistance": 51500, "support": 50800, "max_pain": 51000, "pcr": 1.09 },
-    "finnifty":  { "spot": 23400, "resistance": 23600, "support": 23100, "max_pain": 23300, "pcr": 1.14 }
+    "nifty": {
+      "spot": 23409,
+      "resistance": null,
+      "support": 22000,
+      "max_pain": null,
+      "pcr": 28.44
+    },
+    "banknifty": {
+      "spot": 54413,
+      "resistance": null,
+      "support": 51000,
+      "max_pain": null,
+      "pcr": 26.16
+    },
+    "finnifty": {
+      "spot": 25515,
+      "resistance": null,
+      "support": null,
+      "max_pain": null,
+      "pcr": 26.5
+    },
+    "sensex": {
+      "spot": 75503,
+      "resistance": null,
+      "support": 70000,
+      "max_pain": null,
+      "pcr": 29.07
+    }
   },
-
   "morning_brief": {
-    "headline": "Markets open cautiously bullish as GIFT Nifty signals mild gap-up",
-    "deck": "India VIX at 14.2 — below the caution threshold. S&P 500 closed flat overnight. Crude steady at $74. BankNifty approaches monthly expiry with 4 days remaining. Spreads preferred over naked positions today.",
-    "trade_focus": "Bear Call Spread on Nifty at 24,200 resistance wall. Wait for 9:45 AM confirmation. Stop if wall breaks above 24,250.",
-    "entry_window": "9:45 AM – 10:15 AM",
-    "avoid": "Buying calls at gap-up open — IV inflated. No new BankNifty positions this close to monthly expiry."
+    "headline": "Markets set for gap-up open \u2014 VIX 15.0",
+    "deck": "India VIX at 15.0 \u2014 Elevated \u2014 size down. GIFT Nifty gap: +1.11%. Nifty in NEAR EXPIRY.",
+    "trade_focus": "Run OCI to get live wall levels before entering.",
+    "entry_window": "9:45 AM \u2013 10:15 AM",
+    "avoid": "Buying calls at gap-up open \u2014 IV inflated."
   },
-
   "evening_debrief": {
-    "headline": "Nifty closed +0.42% — morning bias confirmed, wall held",
-    "deck": "The 24,200 resistance wall held throughout the session. PCR closed at 1.24 vs 1.22 at open — sentiment strengthened. Three attempts to break 24,200 failed by 11:30 AM. Expiry week theta decay working as expected.",
-    "lesson": "When VIX falls intraday while Nifty rises, the move is genuine — not a trap. Divergence (VIX up, Nifty up) is the warning sign to exit.",
-    "tomorrow_focus": "24,200 remains the key level. A clean break with volume above 24,250 flips bias. Support at 23,850 PDL."
+    "headline": "Evening debrief publishes at 4:30 PM",
+    "deck": "",
+    "lesson": "",
+    "tomorrow_focus": ""
   },
-
-  "top_stocks": [
-    { "symbol": "RELIANCE",  "ltp": 1284.50, "pct": 2.14, "vol_mult": 3.2, "signal": "VOL" },
-    { "symbol": "HDFCBANK",  "ltp": 1742.30, "pct": -1.08,"vol_mult": 2.1, "signal": "OI"  },
-    { "symbol": "TATAMOTORS","ltp": 842.75,  "pct": 3.42, "vol_mult": 4.8, "signal": "VOL" },
-    { "symbol": "INFY",      "ltp": 1543.20, "pct": -0.54,"vol_mult": 1.8, "signal": "DIV" }
-  ],
-
   "fii": {
-    "net_cash":    -2140,
-    "net_futures": -890,
-    "dii_cash":    3210
-  },
-
-  "week_number": 11,
-  "site_url": "https://prodesk-research.github.io"
+    "net_cash": 0,
+    "net_futures": 0,
+    "dii_cash": 0
+  }
 }
