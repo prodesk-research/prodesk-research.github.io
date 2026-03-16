@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pro Desk — Daily Indian derivatives research. Morning brief, global cues, expiry cycle, education. NSE F&O analysis.">
+<meta property="og:title" content="Pro Desk — Indian Derivatives Research">
+<meta property="og:description" content="Daily morning brief, global cues, expiry cycle analysis for NSE/BSE F&O traders.">
+<meta property="og:url" content="https://prodesk-research.github.io">
+<title>Pro Desk — Indian Derivatives Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Inconsolata:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --ink:     #1C1917;
+  --navy:    #0D1B2A;
+  --navy2:   #162A3F;
+  --mid:     #57534E;
+  --soft:    #A8A29E;
+  --rule:    #D6D0C8;
+  --rule2:   #E7E2D8;
+  --paper:   #FAFAF7;
+  --cream:   #F5F0E4;
+  --cream2:  #EDE8D8;
+  --gold:    #8B6914;
+  --gold2:   #B8921E;
+  --gold3:   #D4AA40;
+  --green:   #14532D;
+  --green2:  #166534;
+  --red:     #7F1D1D;
+  --red2:    #991B1B;
+  --white:   #FFFFFF;
+
+  --f-display: 'Cormorant Garamond', Georgia, serif;
+  --f-body:    'Karla', system-ui, sans-serif;
+  --f-mono:    'Inconsolata', 'Courier New', monospace;
+
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ═══════════════════════════════════════════
+   LOADING STATE
+═══════════════════════════════════════════ */
+#loader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 16px;
+  transition: opacity 0.5s var(--ease), visibility 0.5s;
+}
+#loader.hidden { opacity: 0; visibility: hidden; }
+.loader-brand {
+  font-family: var(--f-display);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+.loader-brand span { color: var(--gold3); }
+.loader-bar {
+  width: 180px; height: 2px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.loader-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold3));
+  animation: load 1.2s var(--ease) forwards;
+  transform-origin: left;
+}
+@keyframes load { from { width:0 } to { width:100% } }
+
+/* ═══════════════════════════════════════════
+   MASTHEAD
+═══════════════════════════════════════════ */
+.masthead {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--navy);
+  border-bottom: 2px solid var(--gold);
+}
+.mast-inner {
+  max-width: 1160px; margin: 0 auto;
+  padding: 0 32px;
+  height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand {
+  display: flex; align-items: baseline; gap: 10px;
+}
+.brand-name {
+  font-family: var(--f-display);
+  font-size: 21px; font-weight: 700;
+  color: var(--white); letter-spacing: 0.3px;
+}
+.brand-name span { color: var(--gold3); }
+.brand-sep {
+  width: 1px; height: 14px;
+  background: rgba(255,255,255,0.2);
+}
+.brand-sub {
+  font-family: var(--f-mono);
+  font-size: 9px; letter-spacing: 2px;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+}
+nav { display: flex; gap: 2px; }
+nav a {
+  font-size: 11.5px; font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  padding: 7px 13px;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+  transition: all 0.18s;
+}
+nav a:hover, nav a.active {
+  color: var(--white);
+  background: rgba(255,255,255,0.07);
+}
+
+/* ═══════════════════════════════════════════
+   DATELINE
+═══════════════════════════════════════════ */
+.dateline {
+  background: var(--cream2);
+  border-bottom: 1px solid var(--rule);
+  padding: 7px 32px;
+}
+.dateline-inner {
+  max-width: 1160px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 8px;
+}
+.date-left {
+  display: flex; align-items: center; gap: 16px;
+  font-family: var(--f-mono); font-size: 10px;
+  color: var(--mid); letter-spacing: 1px;
+}
+.date-edition { font-style: italic; font-family: var(--f-body); font-size: 11px; }
+.ticker-strip {
+  display: flex; gap: 18px;
+  font-family: var(--f-mono); font-size: 10.5px;
+}
+.tk { display: flex; align-items: center; gap: 5px; }
+.tk-lbl { color: var(--soft); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+.tk-val { color: var(--ink); font-weight: 600; }
+.up   { color: var(--green2); }
+.down { color: var(--red2); }
+.flat { color: var(--soft); }
+
+/* ═══════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════ */
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.hero {
+  padding: 52px 0 40px;
+  border-bottom: 2px solid var(--ink);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 56px; align-items: start;
+}
+.hero-kicker {
+  font-family: var(--f-mono);
+  font-size: 9px; letter-spacing: 3px;
+  color: var(--gold); text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-kicker::before {
+  content: ''; display: block;
+  width: 28px; height: 1px; background: var(--gold);
+}
+.hero-hl {
+  font-family: var(--f-display);
+  font-size: 44px; font-weight: 700;
+  color: var(--navy); line-height: 1.08;
+  letter-spacing: -0.3px; margin-bottom: 14px;
+}
+.hero-hl em { font-style: italic; color: var(--gold2); }
+.hero-deck {
+  font-size: 16px; font-weight: 300;
+  color: var(--mid); line-height: 1.7;
+  max-width: 540px; margin-bottom: 24px;
+}
+.hero-stats {
+  display: flex; gap: 28px; flex-wrap: wrap;
+}
+.hs { display: flex; flex-direction: column; gap: 2px; }
+.hs-lbl {
+  font-family: var(--f-mono); font-size: 8px;
+  letter-spacing: 2px; color: var(--soft); text-transform: uppercase;
+}
+.hs-val {
+  font-family: var(--f-display);
+  font-size: 22px; font-weight: 700; color: var(--navy);
+}
+.hs-val.bull { color: var(--green2); }
+.hs-val.bear { color: var(--red2); }
+.hs-val.gold { color: var(--gold2); }
+
+/* Bias panel */
+.bias-panel {
+  background: var(--navy);
+  padding: 26px 28px; border-radius: 2px;
+  border-top: 3px solid var(--gold2);
+  position: relative; overflow: hidden;
+}
+.bias-panel::after {
+  content: 'PRO DESK';
+  position: absolute; bottom: -14px; right: -4px;
+  font-family: var(--f-display);
+  font-size: 64px; font-weight: 700;
+  color: rgba(255,255,255,0.03);
+  pointer-events: none;
+}
+.bp-lbl {
+  font-family: var(--f-mono); font-size: 8px;
+  letter-spacing: 2px; color: rgba(255,255,255,0.35);
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.bp-score {
+  font-family: var(--f-display);
+  font-size: 56px; font-weight: 700; line-height: 1;
+  margin-bottom: 6px;
+}
+.bp-verdict {
+  font-size: 12px; color: rgba(255,255,255,0.55);
+  margin-bottom: 18px; line-height: 1.5;
+}
+.bp-bar {
+  height: 3px; background: rgba(255,255,255,0.08);
+  border-radius: 2px; margin-bottom: 20px; position: relative; overflow: hidden;
+}
+.bp-bar-track {
+  height: 100%;
+  background: linear-gradient(90deg, #EF4444 0%, #D4AA40 50%, #22C55E 100%);
+}
+.bp-cursor {
+  position: absolute; top: -5px;
+  width: 2px; height: 13px;
+  background: white; border-radius: 1px;
+  transform: translateX(-50%);
+}
+.bp-signals { display: flex; flex-direction: column; gap: 7px; }
+.bp-row {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 11px;
+}
+.bp-row-lbl { color: rgba(255,255,255,0.4); }
+.bp-row-val {
+  font-family: var(--f-mono); font-size: 10px; font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION CHROME
+═══════════════════════════════════════════ */
+.section {
+  padding: 52px 0;
+  border-bottom: 1px solid var(--rule2);
+  opacity: 0; transform: translateY(18px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.section.vis { opacity: 1; transform: none; }
+
+.sec-hdr {
+  display: flex; align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 28px; padding-bottom: 13px;
+  border-bottom: 2px solid var(--ink);
+}
+.sec-title {
+  font-family: var(--f-display);
+  font-size: 26px; font-weight: 700; color: var(--navy);
+}
+.sec-meta {
+  font-family: var(--f-mono);
+  font-size: 9px; color: var(--soft); letter-spacing: 1px;
+}
+
+/* ═══════════════════════════════════════════
+   GRID CELLS (shared)
+═══════════════════════════════════════════ */
+.cell-grid {
+  display: grid; gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-bottom: 24px;
+}
+.cell {
+  background: var(--paper);
+  padding: 20px;
+}
+.cell-lbl {
+  font-family: var(--f-mono); font-size: 8.5px;
+  letter-spacing: 1.5px; color: var(--soft);
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.cell-val {
+  font-family: var(--f-display);
+  font-size: 22px; font-weight: 700; color: var(--navy);
+  margin-bottom: 3px;
+}
+.cell-chg {
+  font-family: var(--f-mono);
+  font-size: 11px; display: flex; align-items: center; gap: 4px;
+}
+.cell-note {
+  font-size: 11px; color: var(--soft);
+  font-style: italic; margin-top: 4px;
+}
+
+/* ═══════════════════════════════════════════
+   GLOBAL CUES
+═══════════════════════════════════════════ */
+#cues-grid { grid-template-columns: repeat(4,1fr); }
+
+/* ═══════════════════════════════════════════
+   EXPIRY
+═══════════════════════════════════════════ */
+#expiry-grid { grid-template-columns: repeat(4,1fr); }
+
+.exp-index {
+  font-family: var(--f-mono); font-size: 9px;
+  letter-spacing: 1.5px; color: var(--soft);
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.exp-phase {
+  font-family: var(--f-display);
+  font-size: 16px; font-weight: 700;
+  line-height: 1.2; margin-bottom: 5px;
+}
+.exp-phase.expiry { color: var(--red2); }
+.exp-phase.eve    { color: #92400E; }
+.exp-phase.week   { color: var(--gold2); }
+.exp-phase.near   { color: #1E40AF; }
+.exp-phase.mid    { color: var(--navy); }
+.exp-phase.fresh  { color: var(--green2); }
+.exp-dte  { font-family: var(--f-mono); font-size: 10.5px; color: var(--mid); margin-bottom: 3px; }
+.exp-sch  { font-size: 11px; color: var(--soft); font-style: italic; }
+.exp-action {
+  margin-top: 11px; padding-top: 11px;
+  border-top: 1px solid var(--rule2);
+  font-size: 12px; color: var(--ink); line-height: 1.4;
+}
+
+/* ═══════════════════════════════════════════
+   OI WALLS
+═══════════════════════════════════════════ */
+#walls-grid { grid-template-columns: repeat(4,1fr); }
+
+.wall-index {
+  font-family: var(--f-mono); font-size: 9px;
+  letter-spacing: 1.5px; color: var(--soft);
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.wall-spot {
+  font-family: var(--f-display);
+  font-size: 20px; font-weight: 700; color: var(--navy);
+  margin-bottom: 10px;
+}
+.wall-row {
+  display: flex; justify-content: space-between;
+  font-size: 11.5px; padding: 5px 0;
+  border-bottom: 1px solid var(--rule2);
+}
+.wall-row:last-child { border-bottom: none; }
+.wr-lbl { color: var(--soft); }
+.wr-val { font-family: var(--f-mono); font-weight: 600; }
+.wr-val.r { color: var(--red2); }
+.wr-val.s { color: var(--green2); }
+.wr-val.g { color: var(--gold2); }
+
+/* ═══════════════════════════════════════════
+   BRIEF CARDS
+═══════════════════════════════════════════ */
+.brief-2col {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; background: var(--rule); border: 1px solid var(--rule);
+}
+.brief-col { background: var(--paper); padding: 28px; }
+.brief-col-hdr {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 18px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule2);
+}
+.bc-icon { font-size: 16px; }
+.bc-title {
+  font-family: var(--f-display);
+  font-size: 17px; font-weight: 600; color: var(--navy);
+}
+.bc-time {
+  margin-left: auto;
+  font-family: var(--f-mono); font-size: 9px; color: var(--soft);
+}
+.brief-item { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--rule2); }
+.brief-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.bi-date {
+  font-family: var(--f-mono); font-size: 8.5px;
+  letter-spacing: 1.5px; color: var(--gold); text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.bi-title {
+  font-family: var(--f-display);
+  font-size: 15px; font-weight: 600; color: var(--navy);
+  line-height: 1.3; margin-bottom: 5px;
+}
+.bi-body { font-size: 12.5px; color: var(--mid); line-height: 1.6; }
+.bi-tags { margin-top: 7px; display: flex; gap: 5px; flex-wrap: wrap; }
+.tag {
+  font-family: var(--f-mono); font-size: 8.5px;
+  letter-spacing: 1px; padding: 2px 7px;
+  border: 1px solid var(--rule); color: var(--soft);
+  border-radius: 2px; text-transform: uppercase;
+}
+.tag.bull { border-color: var(--green2); color: var(--green2); }
+.tag.bear { border-color: var(--red2);   color: var(--red2);   }
+.tag.gold { border-color: var(--gold);   color: var(--gold);   }
+
+/* Pull quote */
+.pull-quote {
+  border-left: 3px solid var(--gold);
+  padding: 12px 18px; margin: 24px 0;
+  font-family: var(--f-display);
+  font-size: 17px; font-style: italic;
+  color: #44403C; line-height: 1.55;
+}
+.pull-quote strong { font-style: normal; color: var(--navy); }
+
+/* ═══════════════════════════════════════════
+   EDUCATION
+═══════════════════════════════════════════ */
+#edu-grid { grid-template-columns: repeat(3,1fr); }
+
+.edu-n {
+  font-family: var(--f-display);
+  font-size: 44px; font-weight: 700;
+  color: var(--cream2); line-height: 1;
+  margin-bottom: 10px;
+}
+.edu-title {
+  font-family: var(--f-display);
+  font-size: 17px; font-weight: 600; color: var(--navy);
+  margin-bottom: 7px; line-height: 1.3;
+}
+.edu-body {
+  font-size: 12.5px; color: var(--mid); line-height: 1.65;
+}
+.edu-body strong { color: var(--ink); }
+
+.cell.edu-card { cursor: default; transition: background 0.18s; }
+.cell.edu-card:hover { background: var(--cream2); }
+
+/* Glossary */
+.glossary { width: 100%; border-collapse: collapse; }
+.glossary tr { border-bottom: 1px solid var(--rule2); }
+.glossary tr:last-child { border-bottom: none; }
+.glossary td { padding: 13px 0; vertical-align: top; }
+.gl-term {
+  font-family: var(--f-display);
+  font-weight: 600; font-size: 15px; color: var(--navy);
+  width: 200px; padding-right: 28px;
+}
+.gl-def { font-size: 12.5px; color: var(--mid); line-height: 1.6; }
+
+/* ═══════════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════════ */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 360px;
+  gap: 60px; align-items: start;
+}
+.about-body p {
+  font-size: 15px; font-weight: 300;
+  color: #44403C; line-height: 1.78;
+  margin-bottom: 15px;
+}
+.about-body p strong { color: var(--navy); font-weight: 600; }
+.about-body p:first-child::first-letter {
+  font-family: var(--f-display);
+  font-size: 50px; font-weight: 700;
+  color: var(--navy);
+  float: left; line-height: 0.85;
+  margin: 4px 7px 0 0;
+}
+.about-side { border-top: 2px solid var(--navy); padding-top: 18px; }
+.about-side-title {
+  font-family: var(--f-mono); font-size: 8.5px;
+  letter-spacing: 2px; color: var(--soft); text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.af {
+  display: flex; gap: 12px;
+  padding: 11px 0; border-bottom: 1px solid var(--rule2);
+  font-size: 12.5px;
+}
+.af:last-child { border-bottom: none; }
+.af-lbl { color: var(--soft); min-width: 120px; }
+.af-val { color: var(--navy); font-weight: 500; }
+
+/* Social row */
+.social-row { display: flex; gap: 8px; margin-top: 22px; flex-wrap: wrap; }
+.soc-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 14px;
+  border: 1px solid var(--rule); border-radius: 2px;
+  font-family: var(--f-mono); font-size: 9.5px; letter-spacing: 0.5px;
+  color: var(--mid); cursor: pointer; transition: all 0.18s;
+}
+.soc-btn:hover {
+  background: var(--navy); color: var(--white); border-color: var(--navy);
+}
+
+/* ═══════════════════════════════════════════
+   SUBSCRIBE BAND
+═══════════════════════════════════════════ */
+.sub-band {
+  background: var(--navy); padding: 52px 0;
+}
+.sub-inner {
+  max-width: 1160px; margin: 0 auto; padding: 0 32px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: center;
+}
+.sub-hl {
+  font-family: var(--f-display);
+  font-size: 30px; font-weight: 700;
+  color: var(--white); line-height: 1.2; margin-bottom: 10px;
+}
+.sub-deck {
+  font-size: 14px; font-weight: 300;
+  color: rgba(255,255,255,0.5); line-height: 1.65;
+}
+.sub-form {
+  display: flex; flex-direction: column; gap: 10px;
+}
+.sub-form label {
+  font-family: var(--f-mono); font-size: 8.5px;
+  letter-spacing: 2px; color: rgba(255,255,255,0.35); text-transform: uppercase;
+}
+.sub-channels { display: flex; gap: 7px; }
+.sub-ch {
+  flex: 1; padding: 9px 6px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 2px; text-align: center;
+  cursor: pointer; transition: all 0.18s;
+  font-size: 10.5px; color: rgba(255,255,255,0.45);
+}
+.sub-ch:hover, .sub-ch.sel {
+  background: rgba(212,170,64,0.15);
+  border-color: var(--gold3); color: var(--gold3);
+}
+.sub-input {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 11px 14px;
+  color: var(--white); font-family: var(--f-body);
+  font-size: 13.5px; border-radius: 2px; outline: none;
+  transition: border-color 0.2s;
+}
+.sub-input::placeholder { color: rgba(255,255,255,0.2); }
+.sub-input:focus { border-color: var(--gold3); }
+.sub-btn {
+  padding: 12px;
+  background: var(--gold3); border: none; border-radius: 2px;
+  color: var(--navy); font-family: var(--f-body);
+  font-size: 12.5px; font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase; cursor: pointer; transition: background 0.18s;
+}
+.sub-btn:hover { background: #E2BD55; }
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer {
+  background: var(--ink); padding: 28px 32px;
+}
+.foot-inner {
+  max-width: 1160px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 16px; flex-wrap: wrap;
+}
+.foot-brand {
+  font-family: var(--f-display);
+  font-size: 15px; font-weight: 600;
+  color: rgba(255,255,255,0.3);
+}
+.foot-disc {
+  font-size: 10.5px; color: rgba(255,255,255,0.2);
+  max-width: 440px; text-align: center; line-height: 1.5;
+}
+.foot-links { display: flex; gap: 18px; }
+.foot-links a {
+  font-family: var(--f-mono); font-size: 9.5px;
+  letter-spacing: 1px; color: rgba(255,255,255,0.25);
+  transition: color 0.18s;
+}
+.foot-links a:hover { color: rgba(255,255,255,0.6); }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hero-grid, .about-grid, .sub-inner { grid-template-columns: 1fr; }
+  #cues-grid, #expiry-grid, #walls-grid { grid-template-columns: 1fr 1fr; }
+  #edu-grid { grid-template-columns: 1fr 1fr; }
+  .brief-2col { grid-template-columns: 1fr; }
+  .hero-hl { font-size: 32px; }
+  .mast-inner { padding: 0 16px; }
+  .wrap { padding: 0 16px; }
+}
+@media (max-width: 520px) {
+  #cues-grid, #expiry-grid, #walls-grid, #edu-grid { grid-template-columns: 1fr; }
+  nav { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Loader -->
+<div id="loader">
+  <div class="loader-brand">Pro <span>Desk</span></div>
+  <div class="loader-bar"><div class="loader-progress"></div></div>
+</div>
+
+<!-- Masthead -->
+<header class="masthead">
+  <div class="mast-inner">
+    <div class="brand">
+      <div class="brand-name">Pro <span>Desk</span></div>
+      <div class="brand-sep"></div>
+      <div class="brand-sub">Indian Derivatives Research</div>
+    </div>
+    <nav>
+      <a href="#morning"   class="active">Morning Brief</a>
+      <a href="#evening">Evening Debrief</a>
+      <a href="#expiry">Expiry Cycle</a>
+      <a href="#education">Education</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Dateline -->
+<div class="dateline">
+  <div class="dateline-inner">
+    <div class="date-left">
+      <span id="dl-date">Loading…</span>
+      <span>·</span>
+      <span class="date-edition" id="dl-edition">Morning Edition · NSE/BSE F&amp;O</span>
+    </div>
+    <div class="ticker-strip" id="ticker-strip">
+      <!-- injected by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- Hero -->
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-kicker">Today's Intelligence Brief</div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-hl" id="hero-hl">Loading today's brief…</h1>
+        <p class="hero-deck" id="hero-deck"></p>
+        <div class="hero-stats" id="hero-stats"></div>
+      </div>
+      <div class="bias-panel" id="bias-panel">
+        <div class="bp-lbl">Composite Bias</div>
+        <div class="bp-score" id="bp-score">—</div>
+        <div class="bp-verdict" id="bp-verdict">Loading…</div>
+        <div class="bp-bar">
+          <div class="bp-bar-track"></div>
+          <div class="bp-cursor" id="bp-cursor" style="left:50%"></div>
+        </div>
+        <div class="bp-signals" id="bp-signals"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Morning Brief -->
+<div class="wrap" id="morning">
+  <div class="section">
+    <div class="sec-hdr">
+      <h2 class="sec-title">Morning Brief</h2>
+      <span class="sec-meta" id="morning-meta">Published 8:00–8:30 AM · Pre-Market</span>
+    </div>
+
+    <!-- Global Cues -->
+    <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:var(--soft);text-transform:uppercase;margin-bottom:11px">Global Cues — Today</div>
+    <div class="cell-grid" id="cues-grid" style="grid-template-columns:repeat(4,1fr)"></div>
+
+    <!-- OI Walls -->
+    <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:var(--soft);text-transform:uppercase;margin-bottom:11px;margin-top:24px">Key OI Walls</div>
+    <div class="cell-grid" id="walls-grid" style="grid-template-columns:repeat(4,1fr)"></div>
+
+    <!-- Trade Focus -->
+    <div class="pull-quote" id="morning-focus"></div>
+
+    <!-- Brief Archive -->
+    <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:var(--soft);text-transform:uppercase;margin-top:28px;margin-bottom:14px">Today's Brief</div>
+    <div class="brief-2col" id="morning-brief-cols"></div>
+  </div>
+</div>
+
+<!-- Evening Debrief -->
+<div class="wrap" id="evening">
+  <div class="section">
+    <div class="sec-hdr">
+      <h2 class="sec-title">Evening Debrief</h2>
+      <span class="sec-meta">Published 4:00–4:30 PM · Post-Market</span>
+    </div>
+    <div class="brief-2col" id="evening-cols"></div>
+  </div>
+</div>
+
+<!-- Expiry Cycle -->
+<div style="background:var(--cream);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+<div class="wrap" id="expiry">
+  <div class="section">
+    <div class="sec-hdr">
+      <h2 class="sec-title">Expiry Cycle</h2>
+      <span class="sec-meta" id="expiry-day-meta">NSE / BSE</span>
+    </div>
+    <div class="cell-grid" id="expiry-grid" style="grid-template-columns:repeat(4,1fr)"></div>
+  </div>
+</div>
+</div>
+
+<!-- Education -->
+<div class="wrap" id="education">
+  <div class="section">
+    <div class="sec-hdr">
+      <h2 class="sec-title">Education &amp; Glossary</h2>
+      <span class="sec-meta">Core F&amp;O Concepts</span>
+    </div>
+    <div class="cell-grid" id="edu-grid" style="grid-template-columns:repeat(3,1fr)"></div>
+    <div style="font-family:var(--f-mono);font-size:9px;letter-spacing:2px;color:var(--soft);text-transform:uppercase;margin-top:32px;margin-bottom:18px">Quick Glossary</div>
+    <table class="glossary" id="glossary-table"></table>
+  </div>
+</div>
+
+<!-- About -->
+<div class="wrap" id="about">
+  <div class="section">
+    <div class="sec-hdr">
+      <h2 class="sec-title">About Pro Desk</h2>
+      <span class="sec-meta">Systematic F&amp;O Research · India</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>Pro Desk publishes systematic, data-driven research on Indian index and F&amp;O derivatives. Every morning brief, evening debrief, and weekly summary is generated from live market data — OI structure, PCR, institutional flows, global cues — not opinion or guesswork.</p>
+        <p>The analysis runs on a four-engine framework built on <strong>Upstox v2 API data</strong>: a Decision Engine (M2) gated by a four-pillar OI structure filter, a Wall Anticipator (M4) that confirms institutional positioning across two consecutive scan cycles, a Scalp Engine for intraday momentum plays, and a Monte Carlo simulator calibrated to current IV for strategy probability analysis.</p>
+        <p>All trade ideas are from a <strong>paper trading system</strong> running in real time — documented before live deployment. The system moves to live trading when win rate exceeds 45%, reward-to-risk exceeds 1.5, and max drawdown stays below 8% across 30+ trades.</p>
+        <div class="social-row">
+          <a href="https://prodesk-research.substack.com" class="soc-btn" target="_blank">✉ Substack</a>
+          <a href="https://t.me/prodesk_research" class="soc-btn" target="_blank">✈ Telegram</a>
+          <a href="https://x.com/prodesk_in" class="soc-btn" target="_blank">𝕏 Twitter / X</a>
+          <a href="https://wa.me/message/prodesk" class="soc-btn" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+      <div class="about-side">
+        <div class="about-side-title">System Specifications</div>
+        <div class="af"><span class="af-lbl">Data Source</span><span class="af-val">Upstox v2 API</span></div>
+        <div class="af"><span class="af-lbl">Indices</span><span class="af-val">Nifty, Sensex, BankNifty, FinNifty</span></div>
+        <div class="af"><span class="af-lbl">F&amp;O Universe</span><span class="af-val">206 NSE stocks</span></div>
+        <div class="af"><span class="af-lbl">Refresh Cycle</span><span class="af-val">Every 5 minutes</span></div>
+        <div class="af"><span class="af-lbl">Engines</span><span class="af-val">M2 Decision · M4 Anticipator · Scalp</span></div>
+        <div class="af"><span class="af-lbl">Monte Carlo</span><span class="af-val">GBM · 10,000 paths · 8 strategies</span></div>
+        <div class="af"><span class="af-lbl">Phase</span><span class="af-val">Paper Trading → Live (pending)</span></div>
+        <div class="af"><span class="af-lbl">Disclaimer</span><span class="af-val">Not SEBI registered. Educational only.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Subscribe -->
+<div class="sub-band" id="subscribe">
+  <div class="sub-inner">
+    <div>
+      <h2 class="sub-hl">Get the daily brief delivered to you</h2>
+      <p class="sub-deck">Morning brief by 8:30 AM. Evening debrief by 4:30 PM. Weekly wrap-up Friday. No noise — only what matters for the next session.</p>
+    </div>
+    <div class="sub-form">
+      <label>Choose your channel</label>
+      <div class="sub-channels">
+        <div class="sub-ch sel" onclick="this.classList.toggle('sel')">✉ Substack</div>
+        <div class="sub-ch"    onclick="this.classList.toggle('sel')">✈ Telegram</div>
+        <div class="sub-ch"    onclick="this.classList.toggle('sel')">𝕏 Twitter</div>
+        <div class="sub-ch"    onclick="this.classList.toggle('sel')">💬 WhatsApp</div>
+      </div>
+      <label>Your email (for Substack)</label>
+      <input class="sub-input" type="email" placeholder="you@example.com">
+      <button class="sub-btn">Subscribe to Pro Desk</button>
+      <div style="font-size:10px;color:rgba(255,255,255,0.2);text-align:center">Free · No spam · Unsubscribe anytime</div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">Pro Desk</div>
+    <div class="foot-disc">Educational purposes only. Pro Desk is not SEBI registered and does not provide investment advice. Paper trading results do not guarantee future performance. Options trading involves substantial risk.</div>
+    <div class="foot-links">
+      <a href="#morning">Brief</a>
+      <a href="#education">Education</a>
+      <a href="#about">About</a>
+      <a href="#subscribe">Subscribe</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  DATA + RENDER
+// ═══════════════════════════════════════════════════════
+const EXPIRY_ACTIONS = {
+  "EXPIRY DAY":  "🚨 Exit all positions by 2 PM. No new entries.",
+  "EVE":         "⚠️ Manage existing. No new long options overnight.",
+  "EXPIRY WEEK": "💰 Sell premium. Stay inside max pain range.",
+  "NEAR EXPIRY": "📐 Vertical spreads. Define max loss before entry.",
+  "MID SERIES":  "📊 Spreads aligned with FII bias.",
+  "FRESH SERIES":"🎯 Directional CE/PE. FII direction is the guide.",
+};
+const PHASE_CLS = {
+  "EXPIRY DAY":"expiry","EVE":"eve","EXPIRY WEEK":"week",
+  "NEAR EXPIRY":"near","MID SERIES":"mid","FRESH SERIES":"fresh",
+};
+const INDEX_LABELS = {
+  nifty:"Nifty 50", sensex:"Sensex", banknifty:"Bank Nifty", finnifty:"Fin Nifty"
+};
+const CUE_LABELS = {
+  gift_nifty:"GIFT Nifty Gap", india_vix:"India VIX",
+  sp500:"S&P 500", nasdaq:"Nasdaq", dow:"Dow Jones",
+  nikkei:"Nikkei 225", hangseng:"Hang Seng", dax:"DAX",
+  crude:"Brent Crude", dxy:"DXY Dollar", gold:"Gold XAU/USD", usdinr:"USD / INR"
+};
+
+function el(id){ return document.getElementById(id); }
+function chgColor(v){ return v>0?'up':v<0?'down':'flat'; }
+function fmtChg(v){
+  if(v===undefined||v===null) return '—';
+  const n=parseFloat(v);
+  if(isNaN(n)) return v;
+  return (n>=0?'+':'')+n.toFixed(2)+'%';
+}
+function fmtNum(v,dec=0){
+  if(!v&&v!==0) return '—';
+  return parseFloat(v).toLocaleString('en-IN',{maximumFractionDigits:dec});
+}
+
+async function loadData(){
+  try {
+    const r = await fetch('data.json?v='+Date.now());
+    return await r.json();
+  } catch(e){
+    console.error('data.json load failed:',e);
+    return null;
+  }
+}
+
+function renderDateline(d){
+  el('dl-date').textContent = d.date_display || '';
+  el('dl-edition').textContent = d.edition + ' · NSE/BSE F&O';
+
+  // Ticker strip — GIFT + VIX
+  const g = d.global_cues;
+  if(!g) return;
+  const tickers = [
+    { lbl:'GIFT NIFTY', val: g.gift_nifty?.value||'—', chg: g.gift_nifty?.chg||0 },
+    { lbl:'INDIA VIX',  val: g.india_vix?.value||'—',  chg: g.india_vix?.chg||0 },
+    { lbl:'CRUDE',      val: g.crude?.value||'—',       chg: g.crude?.chg||0 },
+    { lbl:'DXY',        val: g.dxy?.value||'—',         chg: g.dxy?.chg||0 },
+  ];
+  el('ticker-strip').innerHTML = tickers.map(t=>`
+    <div class="tk">
+      <span class="tk-lbl">${t.lbl}</span>
+      <span class="tk-val">${t.val}</span>
+      <span class="${chgColor(t.chg)}">${t.chg>=0?'▲':'▼'} ${Math.abs(t.chg).toFixed(2)}%</span>
+    </div>`).join('');
+}
+
+function renderHero(d){
+  const b  = d.bias||{};
+  const mb = d.morning_brief||{};
+
+  el('hero-hl').innerHTML   = mb.headline||'Today\'s brief loading…';
+  el('hero-deck').textContent= mb.deck||'';
+
+  // Stats row
+  const score = b.score||0;
+  const col   = score>=0.2?'bull':score<=-0.2?'bear':'gold';
+  el('hero-stats').innerHTML = `
+    <div class="hs"><span class="hs-lbl">Bias Score</span>
+      <span class="hs-val ${col}">${score>=0?'+':''}${score.toFixed(2)}</span></div>
+    <div class="hs"><span class="hs-lbl">Confidence</span>
+      <span class="hs-val">${b.confidence||'—'}%</span></div>
+    <div class="hs"><span class="hs-lbl">Gap</span>
+      <span class="hs-val ${chgColor(d.global_cues?.gift_nifty?.chg||0)}">${fmtChg(d.global_cues?.gift_nifty?.chg)}</span></div>
+    <div class="hs"><span class="hs-lbl">Nifty Expiry</span>
+      <span class="hs-val">${d.expiry?.nifty?.dte||'?'}d</span></div>`;
+
+  // Bias panel
+  el('bp-score').textContent = b.code||'—';
+  el('bp-score').style.color  = b.code==='BULL'?'#4ADE80':b.code==='BEAR'?'#F87171':'#D4AA40';
+  el('bp-verdict').textContent= (b.label||'') + ' · Score ' + (score>=0?'+':'') + score.toFixed(2) + ' / ' + (b.confidence||0) + '% confidence';
+
+  // Bar cursor position (score maps -1..+1 → 0..100%)
+  const pct = Math.round(50 + score * 45);
+  el('bp-cursor').style.left = Math.max(2,Math.min(98,pct))+'%';
+
+  // Signals
+  const g = d.global_cues||{};
+  const signals = [
+    {lbl:'GIFT Nifty', v:fmtChg(g.gift_nifty?.chg),  pos:(g.gift_nifty?.chg||0)>=0},
+    {lbl:'India VIX',  v:(g.india_vix?.value||'—'),    pos:(g.india_vix?.chg||0)<0},
+    {lbl:'S&P 500',    v:fmtChg(g.sp500?.chg),         pos:(g.sp500?.chg||0)>=0},
+    {lbl:'Brent Crude',v:(g.crude?.value||'—')+' '+fmtChg(g.crude?.chg), pos:(g.crude?.chg||0)<=0},
+    {lbl:'DXY Dollar', v:fmtChg(g.dxy?.chg),           pos:(g.dxy?.chg||0)<=0},
+    {lbl:'Nikkei',     v:fmtChg(g.nikkei?.chg),        pos:(g.nikkei?.chg||0)>=0},
+  ];
+  el('bp-signals').innerHTML = signals.map(s=>`
+    <div class="bp-row">
+      <span class="bp-row-lbl">${s.lbl}</span>
+      <span class="bp-row-val" style="color:${s.pos?'#4ADE80':'#F87171'}">${s.v}</span>
+    </div>`).join('');
+}
+
+function renderCues(d){
+  const g   = d.global_cues||{};
+  const keys= ['gift_nifty','india_vix','crude','dxy','sp500','nasdaq','gold','usdinr'];
+  el('cues-grid').innerHTML = keys.map(k=>{
+    const c   = g[k]||{};
+    const chg = c.chg||0;
+    return `<div class="cell">
+      <div class="cell-lbl">${CUE_LABELS[k]||k}</div>
+      <div class="cell-val">${c.value||'—'}</div>
+      <div class="cell-chg ${chgColor(chg)}">${chg>=0?'▲':'▼'} ${fmtChg(chg)}</div>
+      <div class="cell-note">${c.note||''}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderWalls(d){
+  const w     = d.walls||{};
+  const order = ['nifty','sensex','banknifty','finnifty'];
+  el('walls-grid').innerHTML = order.map(k=>{
+    const wl = w[k]||{};
+    if(!wl.spot) return `<div class="cell"><div class="wall-index">${INDEX_LABELS[k]||k}</div><div class="cell-note">No data — run OCI first</div></div>`;
+    return `<div class="cell">
+      <div class="wall-index">${INDEX_LABELS[k]||k}</div>
+      <div class="wall-spot">${fmtNum(wl.spot)}</div>
+      <div class="wall-row"><span class="wr-lbl">Resistance</span><span class="wr-val r">${fmtNum(wl.resistance)}</span></div>
+      <div class="wall-row"><span class="wr-lbl">Support</span><span class="wr-val s">${fmtNum(wl.support)}</span></div>
+      <div class="wall-row"><span class="wr-lbl">Max Pain</span><span class="wr-val g">${fmtNum(wl.max_pain)}</span></div>
+      <div class="wall-row"><span class="wr-lbl">PCR</span><span class="wr-val">${wl.pcr||'—'}</span></div>
+    </div>`;
+  }).join('');
+}
+
+function renderExpiry(d){
+  const ctx   = d.expiry||{};
+  const order = ['nifty','sensex','banknifty','finnifty'];
+  const day   = new Date().toLocaleDateString('en-IN',{weekday:'long'});
+  el('expiry-day-meta').textContent = day + ' · NSE / BSE';
+
+  el('expiry-grid').innerHTML = order.map(k=>{
+    const c   = ctx[k]||{};
+    const ph  = c.phase||'—';
+    const cls = PHASE_CLS[ph]||'fresh';
+    const act = EXPIRY_ACTIONS[ph]||'';
+    return `<div class="cell">
+      <div class="exp-index">${INDEX_LABELS[k]||k}</div>
+      <div class="exp-phase ${cls}">${c.icon||''} ${ph}</div>
+      <div class="exp-dte">${c.dte||'?'}d → ${c.date||'—'}</div>
+      <div class="exp-sch">${c.schedule||''}</div>
+      <div class="exp-action">${act}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderMorningBrief(d){
+  const mb = d.morning_brief||{};
+  const ts = d.global_cues||{};
+
+  el('morning-focus').innerHTML = mb.trade_focus
+    ? `"${mb.trade_focus}"` : '';
+
+  el('morning-brief-cols').innerHTML = `
+    <div class="brief-col">
+      <div class="brief-col-hdr">
+        <span class="bc-icon">🎯</span>
+        <span class="bc-title">Today's Trade Focus</span>
+        <span class="bc-time">${d.date_display||''}</span>
+      </div>
+      <div class="brief-item">
+        <div class="bi-date">${d.date_display||''}</div>
+        <div class="bi-title">${mb.headline||'—'}</div>
+        <div class="bi-body">${mb.deck||''}</div>
+      </div>
+      ${mb.avoid?`<div class="brief-item">
+        <div class="bi-date">Avoid Today</div>
+        <div class="bi-title">What to stay away from</div>
+        <div class="bi-body">${mb.avoid}</div>
+        <div class="bi-tags"><span class="tag bear">Caution</span></div>
+      </div>`:''}
+    </div>
+    <div class="brief-col">
+      <div class="brief-col-hdr">
+        <span class="bc-icon">⏰</span>
+        <span class="bc-title">Session Timing</span>
+      </div>
+      <div class="brief-item">
+        <div class="bi-date">Entry Window</div>
+        <div class="bi-title">${mb.entry_window||'9:45 AM – 10:15 AM'}</div>
+        <div class="bi-body">Wait for opening range to form. Do not enter before OCI confirms wall levels.</div>
+      </div>
+      <div class="brief-item">
+        <div class="bi-date">Engine Gates</div>
+        <div class="bi-title">M2 · M4 · Scalp conditions today</div>
+        <div class="bi-body">
+          <b>M2 Decision:</b> 9:45 AM · 2+ of 4 pillars · conviction ≥70%<br>
+          <b>M4 Anticipator:</b> 9:55 AM · 2-scan wall confirm · conviction ≥80%<br>
+          <b>Scalp Engine:</b> 9:30 AM · PRIME quality only · per-type time cap
+        </div>
+        <div class="bi-tags"><span class="tag">M2</span><span class="tag">M4</span><span class="tag">Scalp</span></div>
+      </div>
+    </div>`;
+}
+
+function renderEveningDebrief(d){
+  const ev = d.evening_debrief||{};
+  const w  = d.walls||{};
+  const nw = w.nifty||{};
+
+  el('evening-cols').innerHTML = `
+    <div class="brief-col">
+      <div class="brief-col-hdr">
+        <span class="bc-icon">📊</span>
+        <span class="bc-title">What Happened</span>
+        <span class="bc-time">Today</span>
+      </div>
+      <div class="brief-item">
+        <div class="bi-date">Close · ${d.date_display||''}</div>
+        <div class="bi-title">${ev.headline||'Awaiting market close…'}</div>
+        <div class="bi-body">${ev.deck||'Evening debrief publishes at 4:30 PM after market close.'}</div>
+      </div>
+      ${ev.lesson?`<div class="brief-item">
+        <div class="bi-date">One Lesson Today</div>
+        <div class="bi-title">What the market taught us</div>
+        <div class="bi-body">${ev.lesson}</div>
+        <div class="bi-tags"><span class="tag">Lesson</span></div>
+      </div>`:''}
+    </div>
+    <div class="brief-col">
+      <div class="brief-col-hdr">
+        <span class="bc-icon">🔭</span>
+        <span class="bc-title">Tomorrow's Watchlist</span>
+      </div>
+      <div class="brief-item">
+        <div class="bi-date">Key Levels for Tomorrow</div>
+        <div class="bi-title">Nifty ${nw.resistance?'Resist '+fmtNum(nw.resistance):''} · Support ${fmtNum(nw.support)||'—'}</div>
+        <div class="bi-body">${ev.tomorrow_focus||'Tomorrow\'s levels update after evening OCI run.'}</div>
+        <div class="bi-tags">
+          ${nw.resistance?`<span class="tag bear">Resist ${fmtNum(nw.resistance)}</span>`:''}
+          ${nw.support?`<span class="tag bull">Support ${fmtNum(nw.support)}</span>`:''}
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderEducation(){
+  const cards = [
+    { n:'01', t:'What is OI and Why It Matters',
+      b:'Open Interest is total outstanding contracts. <strong>Rising OI + rising price = new money entering = strong trend.</strong> Rising OI + falling price = bearish pressure building. Falling OI = conviction dropping.' },
+    { n:'02', t:'Put-Call Ratio (PCR)',
+      b:'PCR = total put OI ÷ total call OI. <strong>PCR above 1.2 = more puts = bullish (contrarian).</strong> PCR below 0.8 = too many calls = bearish. Most useful when it moves sharply.' },
+    { n:'03', t:'Max Pain Theory',
+      b:'The strike where maximum options expire worthless. <strong>Market makers benefit from pinning expiry near max pain.</strong> Most reliable within 100 pts of spot on expiry day itself.' },
+    { n:'04', t:'IV and When to Buy vs Sell',
+      b:'<strong>When VIX above 18: sell premium.</strong> Straddles, iron condors. When VIX below 14: buy premium. Breakouts, directional plays. IV always mean-reverts — that is the edge.' },
+    { n:'05', t:'Theta Decay — The Seller\'s Edge',
+      b:'<strong>ATM options lose ~1/3 of value in the last week before expiry.</strong> This is why expiry week is the best time to sell premium. Spreads cap your risk if the market moves against you.' },
+    { n:'06', t:'Reading OI Walls',
+      b:'High call OI at a strike = institutional resistance. <strong>When a wall breaks (OI drops >10%), it accelerates the move.</strong> The Pro Desk system flags walls building, breaking, and anticipated walls before they form.' },
+  ];
+  el('edu-grid').innerHTML = cards.map(c=>`
+    <div class="cell edu-card">
+      <div class="edu-n">${c.n}</div>
+      <div class="edu-title">${c.t}</div>
+      <div class="edu-body">${c.b}</div>
+    </div>`).join('');
+
+  const glossary = [
+    ['ATM','At The Money — the strike closest to current spot. Highest theta decay, most sensitive to moves.'],
+    ['OTM','Out of The Money — call above spot, put below spot. Cheaper to buy but needs a bigger move.'],
+    ['Bull Put Spread','Sell a put at higher strike, buy put at lower strike. Profit if index stays above sell strike.'],
+    ['Bear Call Spread','Sell a call at lower strike, buy call at higher strike. Profit if index stays below sell strike.'],
+    ['Iron Condor','Bull Put Spread + Bear Call Spread combined. Profit if index stays in a range.'],
+    ['GIFT Nifty Gap','Difference between GIFT City Nifty futures and previous day close. Primary overnight indicator.'],
+    ['DTE','Days To Expiry. Options behave very differently at 0–2 DTE vs 7+ DTE.'],
+    ['GBM','Geometric Brownian Motion — the model behind the Pro Desk Monte Carlo simulator.'],
+  ];
+  el('glossary-table').innerHTML = glossary.map(([t,d])=>`
+    <tr>
+      <td class="gl-term">${t}</td>
+      <td class="gl-def">${d}</td>
+    </tr>`).join('');
+}
+
+function initScrollReveal(){
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){ e.target.classList.add('vis'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.section').forEach(s => obs.observe(s));
+}
+
+function initActiveNav(){
+  const ids   = ['morning','evening','expiry','education','about'];
+  const links = document.querySelectorAll('nav a');
+  window.addEventListener('scroll', ()=>{
+    let cur = '';
+    ids.forEach(id=>{
+      const el_ = document.getElementById(id);
+      if(el_ && window.scrollY >= el_.offsetTop - 100) cur = id;
+    });
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href')==='#'+cur));
+  });
+}
+
+// ── MAIN ────────────────────────────────────────────────
+async function init(){
+  const d = await loadData();
+
+  // Hide loader
+  setTimeout(()=> el('loader').classList.add('hidden'), 1300);
+
+  if(!d){ return; }
+
+  renderDateline(d);
+  renderHero(d);
+  renderCues(d);
+  renderWalls(d);
+  renderExpiry(d);
+  renderMorningBrief(d);
+  renderEveningDebrief(d);
+  renderEducation();
+  initScrollReveal();
+  initActiveNav();
+}
+
+window.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
