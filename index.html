@@ -890,7 +890,7 @@ function renderDateline(d){
   if(!g) return;
   const tickers = [
     { lbl:'GIFT NIFTY', val: g.gift_nifty?.value||'—', chg: g.gift_nifty?.chg||0 },
-    { lbl:'INDIA VIX',  val: g.india_vix?.value||'—',  chg: g.india_vix?.chg||0 },
+    { lbl:'INDIA VIX 🔴', val: g.india_vix?.value||'—', chg: g.india_vix?.chg||0 },
     { lbl:'CRUDE',      val: g.crude?.value||'—',       chg: g.crude?.chg||0 },
     { lbl:'DXY',        val: g.dxy?.value||'—',         chg: g.dxy?.chg||0 },
   ];
@@ -969,12 +969,15 @@ function renderWalls(d){
   el('walls-grid').innerHTML = order.map(k=>{
     const wl = w[k]||{};
     if(!wl.spot) return `<div class="cell"><div class="wall-index">${INDEX_LABELS[k]||k}</div><div class="cell-note">No data — run OCI first</div></div>`;
+    const mpBadge = wl.max_pain_source==='live'
+      ? '<span style="font-size:9px;background:#1A5C38;color:#fff;padding:1px 5px;border-radius:3px;margin-left:4px">LIVE</span>'
+      : '<span style="font-size:9px;background:#78716C;color:#fff;padding:1px 5px;border-radius:3px;margin-left:4px">EOD</span>';
     return `<div class="cell">
       <div class="wall-index">${INDEX_LABELS[k]||k}</div>
       <div class="wall-spot">${fmtNum(wl.spot)}</div>
       <div class="wall-row"><span class="wr-lbl">Resistance</span><span class="wr-val r">${fmtNum(wl.resistance)}</span></div>
       <div class="wall-row"><span class="wr-lbl">Support</span><span class="wr-val s">${fmtNum(wl.support)}</span></div>
-      <div class="wall-row"><span class="wr-lbl">Max Pain</span><span class="wr-val g">${fmtNum(wl.max_pain)}</span></div>
+      <div class="wall-row"><span class="wr-lbl">Max Pain ${mpBadge}</span><span class="wr-val g" style="font-weight:700">${fmtNum(wl.max_pain)}</span></div>
       <div class="wall-row"><span class="wr-lbl">PCR</span><span class="wr-val">${wl.pcr||'—'}</span></div>
     </div>`;
   }).join('');
