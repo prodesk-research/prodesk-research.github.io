@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-03-17T02:31:09",
+  "generated_at": "2026-03-17T18:27:29",
   "date": "2026-03-17",
   "date_display": "Tuesday, 17 March 2026",
   "edition": "Morning Edition",
   "week_number": 12,
   "site_url": "https://prodesk-research.github.io",
   "bias": {
-    "label": "BULLISH OPEN",
-    "code": "BULL",
-    "score": 0.7,
-    "confidence": 81,
-    "emoji": "\ud83d\udfe2"
+    "label": "NEUTRAL / FLAT",
+    "code": "NEUTRAL",
+    "score": 0.0,
+    "confidence": 0,
+    "emoji": "\ud83d\udfe1"
   },
   "global_cues": {
     "gift_nifty": {
       "value": "\u2014",
-      "chg": 1.11,
+      "chg": 0.0,
       "note": "Primary gap indicator"
     },
     "india_vix": {
@@ -35,12 +35,12 @@
     },
     "crude": {
       "value": "\u2014",
-      "chg": -2.23,
+      "chg": 0.83,
       "note": "Inflation signal"
     },
     "dxy": {
       "value": "\u2014",
-      "chg": 0.0,
+      "chg": 1.13,
       "note": "USD strength"
     },
     "gold": {
@@ -55,12 +55,12 @@
     },
     "nikkei": {
       "value": "\u2014",
-      "chg": -0.13,
+      "chg": -0.09,
       "note": "Japan"
     },
     "hangseng": {
       "value": "\u2014",
-      "chg": 1.45,
+      "chg": 0.13,
       "note": "Hong Kong"
     },
     "dow": {
@@ -101,40 +101,44 @@
   },
   "walls": {
     "nifty": {
-      "spot": 23409,
+      "spot": 23559,
       "resistance": null,
-      "support": 22000,
+      "support": 21000,
       "max_pain": null,
-      "pcr": 28.44
+      "max_pain_source": "oci_log",
+      "pcr": null
     },
     "banknifty": {
-      "spot": 54413,
+      "spot": 54876,
       "resistance": null,
       "support": 51000,
       "max_pain": null,
-      "pcr": 26.16
+      "max_pain_source": "oci_log",
+      "pcr": null
     },
     "finnifty": {
-      "spot": 25515,
+      "spot": 25725,
       "resistance": null,
       "support": null,
       "max_pain": null,
-      "pcr": 26.5
+      "max_pain_source": "oci_log",
+      "pcr": null
     },
     "sensex": {
-      "spot": 75503,
+      "spot": 76071,
       "resistance": null,
-      "support": 70000,
+      "support": 73000,
       "max_pain": null,
-      "pcr": 29.07
+      "max_pain_source": "oci_log",
+      "pcr": null
     }
   },
   "morning_brief": {
-    "headline": "Markets set for gap-up open \u2014 VIX 15.0",
-    "deck": "India VIX at 15.0 \u2014 Elevated \u2014 size down. GIFT Nifty gap: +1.11%. Nifty in NEAR EXPIRY.",
+    "headline": "Markets set for flat open \u2014 VIX 15.0",
+    "deck": "India VIX at 15.0 \u2014 Elevated \u2014 size down. GIFT Nifty gap: +0.00%. Nifty in NEAR EXPIRY.",
     "trade_focus": "Run OCI to get live wall levels before entering.",
     "entry_window": "9:45 AM \u2013 10:15 AM",
-    "avoid": "Buying calls at gap-up open \u2014 IV inflated."
+    "avoid": ""
   },
   "evening_debrief": {
     "headline": "Evening debrief publishes at 4:30 PM",
