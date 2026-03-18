@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-18T20:05:34",
+  "generated_at": "2026-03-18T20:16:52",
   "date": "2026-03-18",
   "date_display": "Wednesday, 18 March 2026",
   "edition": "Morning Edition",
@@ -24,33 +24,33 @@
       "note": "Key risk signal"
     },
     "sp500": {
-      "value": "6671.580078125",
-      "chg": -0.66,
+      "value": "6670.740234375",
+      "chg": -0.68,
       "note": "US markets"
     },
     "nasdaq": {
-      "value": "22326.263671875",
+      "value": "22326.515625",
       "chg": -0.68,
       "note": "Tech index"
     },
     "crude": {
-      "value": "109.54000091552734",
-      "chg": 5.92,
+      "value": "109.73999786376953",
+      "chg": 6.11,
       "note": "Inflation signal"
     },
     "dxy": {
-      "value": "99.5790023803711",
-      "chg": -0.13,
+      "value": "99.59400177001953",
+      "chg": -0.12,
       "note": "USD strength"
     },
     "gold": {
-      "value": "4867.7001953125",
-      "chg": -2.67,
+      "value": "4861.7001953125",
+      "chg": -2.79,
       "note": "Risk-off signal"
     },
     "usdinr": {
-      "value": "92.8239974975586",
-      "chg": 0.587,
+      "value": "92.8280029296875",
+      "chg": 0.591,
       "note": "INR stability"
     },
     "nikkei": {
@@ -151,6 +151,6 @@
     "net_futures": 0,
     "dii_cash": 0
   },
-  "full_brief_html": "<div style=\"font-family:DM Sans,system-ui,sans-serif;line-height:1.8;color:#0F1923\">\n<p style=\"font-size:11px;color:#94A3B8;font-family:JetBrains Mono,monospace;letter-spacing:1px;margin-bottom:20px\">ANALYSIS \u00b7 Wednesday, 18 March 2026 \u00b7 20:05 IST</p>\n<div style=\"margin-bottom:28px\"><h3 style=\"font-size:16px;font-weight:600;color:#0A2540;margin:0 0 8px 0;padding-bottom:7px;border-bottom:1px solid #E9ECEF\">\ud83c\udf05 Opening Outlook</h3><p style=\"font-size:13.5px;color:#374151;margin:0;line-height:1.8\">Markets are set for a <b>gap-up of +0.8%</b> today, implying a bullish opening. India VIX is at <b></b> (calm \u2014 normal trading conditions). Composite bias is <b style=\"color:#D97706\">FLAT / UNCERTAIN OPEN</b> with 58% confidence.</p></div>\n<div style=\"margin-bottom:28px\"><h3 style=\"font-size:16px;font-weight:600;color:#0A2540;margin:0 0 8px 0;padding-bottom:7px;border-bottom:1px solid #E9ECEF\">\ud83c\udf0d Global Cues</h3><p style=\"font-size:13.5px;color:#374151;margin:0;line-height:1.8\">US markets <b>slipped</b> (S&P 500 <b>6,672</b> <span style=\"color:#DC2626;font-weight:600\">\u25bc 0.66%</span>). Nikkei <span style=\"color:#15803D;font-weight:600\">\u25b2 2.87%</span>, Hang Seng <span style=\"color:#15803D;font-weight:600\">\u25b2 0.61%</span>. Crude spiked to <b>110</b> <span style=\"color:#DC2626;font-weight:600\">\u25b2 5.92%</span>, adding inflation concern. Dollar <span style=\"color:#15803D;font-weight:600\">\u25bc 0.13%</span>, no major FII pressure from dollar. Gold <b>4,868</b> <span style=\"color:#15803D;font-weight:600\">\u25bc 2.67%</span>. USD/INR: <b>92.8239974975586</b>.</p></div>\n<div style=\"margin-bottom:28px\"><h3 style=\"font-size:16px;font-weight:600;color:#0A2540;margin:0 0 8px 0;padding-bottom:7px;border-bottom:1px solid #E9ECEF\">\u2699\ufe0f GEX & Market Regime</h3><p style=\"font-size:13.5px;color:#374151;margin:0;line-height:1.8\">Run OCI (9:15 AM) to populate GEX and regime data.</p></div>\n<div style=\"margin-bottom:28px\"><h3 style=\"font-size:16px;font-weight:600;color:#0A2540;margin:0 0 8px 0;padding-bottom:7px;border-bottom:1px solid #E9ECEF\">\ud83e\uddf1 OI Walls & Max Pain</h3><p style=\"font-size:13.5px;color:#374151;margin:0;line-height:1.8\"><b style=\"color:#1D4ED8\">Nifty 50</b>: R <b style=\"color:#DC2626\">0</b> \u00b7 S <b style=\"color:#15803D\">21,000</b> \u00b7 MaxPain <b>0</b> (below spot) \u00b7 PCR 0.00 (bearish).<br><b style=\"color:#1D4ED8\">Sensex</b>: R <b style=\"color:#DC2626\">0</b> \u00b7 S <b style=\"color:#15803D\">74,000</b> \u00b7 MaxPain <b>0</b> (below spot) \u00b7 PCR 0.00 (bearish).<br><b style=\"color:#1D4ED8\">Bank Nifty</b>: R <b style=\"color:#DC2626\">0</b> \u00b7 S <b style=\"color:#15803D\">54,000</b> \u00b7 MaxPain <b>0</b> (below spot) \u00b7 PCR 0.00 (bearish).<br><b style=\"color:#1D4ED8\">Fin Nifty</b>: R <b style=\"color:#DC2626\">0</b> \u00b7 S <b style=\"color:#15803D\">0</b> \u00b7 MaxPain <b>0</b> (below spot) \u00b7 PCR 0.00 (bearish).</p></div>\n<div style=\"margin-bottom:28px\"><h3 style=\"font-size:16px;font-weight:600;color:#0A2540;margin:0 0 8px 0;padding-bottom:7px;border-bottom:1px solid #E9ECEF\">\ud83d\udcc5 Expiry Cycle</h3><p style=\"font-size:13.5px;color:#374151;margin:0;line-height:1.8\"><b>Nifty 50</b>: NEAR EXPIRY \u00b7 6d to 24 Mar \u2014 \ud83d\udcd0 Use spreads.<br><b>Sensex</b>: EVE \u00b7 1d to 19 Mar \u2014 \u26a0\ufe0f Close longs.<br><b>Bank Nifty</b>: MID SERIES \u00b7 13d to 31 Mar \u2014 \ud83d\udcca Spreads + FII bias.<br><b>Fin Nifty</b>: MID SERIES \u00b7 13d to 31 Mar \u2014 \ud83d\udcca Spreads + FII bias.</p></div>\n<div style=\"margin-bottom:28px\"><h3 style=\"font-size:16px;font-weight:600;color:#0A2540;margin:0 0 8px 0;padding-bottom:7px;border-bottom:1px solid #E9ECEF\">\ud83c\udfaf Trading Plan</h3><p style=\"font-size:13.5px;color:#374151;margin:0;line-height:1.8\"><b>M2</b> enters 9:45 AM \u2014 2+ pillars, conviction \u226560%. <b>M4</b> watches wall pre-positioning from 9:55 AM. <b>Scalp</b> active from 9:30 AM for breakout/rejection setups. </p></div>\n</div>",
+  "full_brief_html": "<div style=\"font-family:DM Sans,system-ui,sans-serif;line-height:1.8;color:#0F1923\">\n<p style=\"font-size:11px;color:#94A3B8;font-family:JetBrains Mono,monospace;letter-spacing:1px;margin-bottom:20px\">ANALYSIS \u00b7 Wednesday, 18 March 2026 \u00b7 20:16 IST</p>\n<div style=\"margin-bottom:28px\"><h3 style=\"font-size:16px;font-weight:600;color:#0A2540;margin:0 0 8px 0;padding-bottom:7px;border-bottom:1px solid #E9ECEF\">\ud83c\udf05 Opening Outlook</h3><p style=\"font-size:13.5px;color:#374151;margin:0;line-height:1.8\">Markets are set for a <b>gap-up of +0.8%</b> today, implying a bullish opening. India VIX is at <b></b> (calm \u2014 normal trading conditions). Composite bias is <b style=\"color:#D97706\">FLAT / UNCERTAIN OPEN</b> with 58% confidence.</p></div>\n<div style=\"margin-bottom:28px\"><h3 style=\"font-size:16px;font-weight:600;color:#0A2540;margin:0 0 8px 0;padding-bottom:7px;border-bottom:1px solid #E9ECEF\">\ud83c\udf0d Global Cues</h3><p style=\"font-size:13.5px;color:#374151;margin:0;line-height:1.8\">US markets <b>slipped</b> (S&P 500 <b>6,671</b> <span style=\"color:#DC2626;font-weight:600\">\u25bc 0.68%</span>). Nikkei <span style=\"color:#15803D;font-weight:600\">\u25b2 2.87%</span>, Hang Seng <span style=\"color:#15803D;font-weight:600\">\u25b2 0.61%</span>. Crude spiked to <b>110</b> <span style=\"color:#DC2626;font-weight:600\">\u25b2 6.11%</span>, adding inflation concern. Dollar <span style=\"color:#15803D;font-weight:600\">\u25bc 0.12%</span>, no major FII pressure from dollar. Gold <b>4,862</b> <span style=\"color:#15803D;font-weight:600\">\u25bc 2.79%</span>. USD/INR: <b>92.8280029296875</b>.</p></div>\n<div style=\"margin-bottom:28px\"><h3 style=\"font-size:16px;font-weight:600;color:#0A2540;margin:0 0 8px 0;padding-bottom:7px;border-bottom:1px solid #E9ECEF\">\u2699\ufe0f GEX & Market Regime</h3><p style=\"font-size:13.5px;color:#374151;margin:0;line-height:1.8\">Run OCI (9:15 AM) to populate GEX and regime data.</p></div>\n<div style=\"margin-bottom:28px\"><h3 style=\"font-size:16px;font-weight:600;color:#0A2540;margin:0 0 8px 0;padding-bottom:7px;border-bottom:1px solid #E9ECEF\">\ud83e\uddf1 OI Walls & Max Pain</h3><p style=\"font-size:13.5px;color:#374151;margin:0;line-height:1.8\"><b style=\"color:#1D4ED8\">Nifty 50</b>: R <b style=\"color:#DC2626\">0</b> \u00b7 S <b style=\"color:#15803D\">21,000</b> \u00b7 MaxPain <b>0</b> (below spot) \u00b7 PCR 0.00 (bearish).<br><b style=\"color:#1D4ED8\">Sensex</b>: R <b style=\"color:#DC2626\">0</b> \u00b7 S <b style=\"color:#15803D\">74,000</b> \u00b7 MaxPain <b>0</b> (below spot) \u00b7 PCR 0.00 (bearish).<br><b style=\"color:#1D4ED8\">Bank Nifty</b>: R <b style=\"color:#DC2626\">0</b> \u00b7 S <b style=\"color:#15803D\">54,000</b> \u00b7 MaxPain <b>0</b> (below spot) \u00b7 PCR 0.00 (bearish).<br><b style=\"color:#1D4ED8\">Fin Nifty</b>: R <b style=\"color:#DC2626\">0</b> \u00b7 S <b style=\"color:#15803D\">0</b> \u00b7 MaxPain <b>0</b> (below spot) \u00b7 PCR 0.00 (bearish).</p></div>\n<div style=\"margin-bottom:28px\"><h3 style=\"font-size:16px;font-weight:600;color:#0A2540;margin:0 0 8px 0;padding-bottom:7px;border-bottom:1px solid #E9ECEF\">\ud83d\udcc5 Expiry Cycle</h3><p style=\"font-size:13.5px;color:#374151;margin:0;line-height:1.8\"><b>Nifty 50</b>: NEAR EXPIRY \u00b7 6d to 24 Mar \u2014 \ud83d\udcd0 Use spreads.<br><b>Sensex</b>: EVE \u00b7 1d to 19 Mar \u2014 \u26a0\ufe0f Close longs.<br><b>Bank Nifty</b>: MID SERIES \u00b7 13d to 31 Mar \u2014 \ud83d\udcca Spreads + FII bias.<br><b>Fin Nifty</b>: MID SERIES \u00b7 13d to 31 Mar \u2014 \ud83d\udcca Spreads + FII bias.</p></div>\n<div style=\"margin-bottom:28px\"><h3 style=\"font-size:16px;font-weight:600;color:#0A2540;margin:0 0 8px 0;padding-bottom:7px;border-bottom:1px solid #E9ECEF\">\ud83c\udfaf Trading Plan</h3><p style=\"font-size:13.5px;color:#374151;margin:0;line-height:1.8\"><b>M2</b> enters 9:45 AM \u2014 2+ pillars, conviction \u226560%. <b>M4</b> watches wall pre-positioning from 9:55 AM. <b>Scalp</b> active from 9:30 AM for breakout/rejection setups. </p></div>\n</div>",
   "has_gex_data": false
 }
