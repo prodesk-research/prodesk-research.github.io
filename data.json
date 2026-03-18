@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-03-18T19:31:56",
+  "generated_at": "2026-03-18T20:02:27",
   "date": "2026-03-18",
   "date_display": "Wednesday, 18 March 2026",
   "edition": "Morning Edition",
   "week_number": 12,
   "site_url": "https://prodesk-research.github.io",
   "bias": {
-    "label": "-2.641",
-    "code": "BULL",
-    "score": 0.606,
-    "confidence": 0,
-    "emoji": "\ud83d\udfe2"
+    "label": "FLAT / UNCERTAIN OPEN",
+    "code": "NEUTRAL",
+    "score": 0.183,
+    "confidence": 58,
+    "emoji": "\ud83d\udfe1"
   },
   "global_cues": {
     "gift_nifty": {
@@ -19,48 +19,48 @@
       "note": "Primary gap indicator"
     },
     "india_vix": {
-      "value": "108.91999816894531",
+      "value": "\u2014",
       "chg": 0.0,
       "note": "Key risk signal"
     },
     "sp500": {
-      "value": "\u2014",
-      "chg": -0.24,
+      "value": "6670.9501953125",
+      "chg": -0.67,
       "note": "US markets"
     },
     "nasdaq": {
-      "value": "\u2014",
-      "chg": 0.0,
+      "value": "22325.421875",
+      "chg": -0.69,
       "note": "Tech index"
     },
     "crude": {
-      "value": "\u2014",
-      "chg": 0.0,
+      "value": "109.4000015258789",
+      "chg": 5.78,
       "note": "Inflation signal"
     },
     "dxy": {
-      "value": "\u2014",
-      "chg": -0.2,
+      "value": "99.59400177001953",
+      "chg": -0.12,
       "note": "USD strength"
     },
     "gold": {
-      "value": "\u2014",
-      "chg": 0.0,
+      "value": "4869.2001953125",
+      "chg": -2.63,
       "note": "Risk-off signal"
     },
     "usdinr": {
-      "value": "2.866",
-      "chg": 0.0,
+      "value": "92.80500030517578",
+      "chg": 0.566,
       "note": "INR stability"
     },
     "nikkei": {
       "value": "\u2014",
-      "chg": 0.0,
+      "chg": 2.87,
       "note": "Japan"
     },
     "hangseng": {
       "value": "\u2014",
-      "chg": 5.32,
+      "chg": 0.61,
       "note": "Hong Kong"
     },
     "dow": {
@@ -134,8 +134,8 @@
     }
   },
   "morning_brief": {
-    "headline": "Markets set for gap-up open \u2014 VIX 108.9",
-    "deck": "India VIX at 108.9 \u2014 HIGH \u2014 avoid buying options. GIFT Nifty gap: +0.83%. Nifty in NEAR EXPIRY.",
+    "headline": "Markets set for gap-up open \u2014 VIX 15.0",
+    "deck": "India VIX at 15.0 \u2014 Elevated \u2014 size down. GIFT Nifty gap: +0.83%. Nifty in NEAR EXPIRY.",
     "trade_focus": "Run OCI to get live wall levels before entering.",
     "entry_window": "9:45 AM \u2013 10:15 AM",
     "avoid": "Buying calls at gap-up open \u2014 IV inflated."
