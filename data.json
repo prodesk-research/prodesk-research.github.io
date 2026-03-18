@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-03-17T18:43:38",
-  "date": "2026-03-17",
-  "date_display": "Tuesday, 17 March 2026",
+  "generated_at": "2026-03-18T08:31:15",
+  "date": "2026-03-18",
+  "date_display": "Wednesday, 18 March 2026",
   "edition": "Morning Edition",
   "week_number": 12,
   "site_url": "https://prodesk-research.github.io",
   "bias": {
-    "label": "NEUTRAL / FLAT",
-    "code": "NEUTRAL",
-    "score": 0.0,
-    "confidence": 0,
-    "emoji": "\ud83d\udfe1"
+    "label": "MILDLY BULLISH OPEN",
+    "code": "BULL",
+    "score": 0.35,
+    "confidence": 65,
+    "emoji": "\ud83d\udfe2"
   },
   "global_cues": {
     "gift_nifty": {
       "value": "\u2014",
-      "chg": 0.0,
+      "chg": 0.74,
       "note": "Primary gap indicator"
     },
     "india_vix": {
@@ -25,7 +25,7 @@
     },
     "sp500": {
       "value": "\u2014",
-      "chg": 1.01,
+      "chg": 0.25,
       "note": "US markets"
     },
     "nasdaq": {
@@ -35,12 +35,12 @@
     },
     "crude": {
       "value": "\u2014",
-      "chg": 0.83,
+      "chg": 1.87,
       "note": "Inflation signal"
     },
     "dxy": {
       "value": "\u2014",
-      "chg": 1.13,
+      "chg": -0.13,
       "note": "USD strength"
     },
     "gold": {
@@ -55,12 +55,12 @@
     },
     "nikkei": {
       "value": "\u2014",
-      "chg": -0.09,
+      "chg": 2.23,
       "note": "Japan"
     },
     "hangseng": {
       "value": "\u2014",
-      "chg": 0.13,
+      "chg": -0.04,
       "note": "Hong Kong"
     },
     "dow": {
@@ -72,28 +72,28 @@
   "expiry": {
     "nifty": {
       "phase": "NEAR EXPIRY",
-      "dte": 7,
+      "dte": 6,
       "date": "24 Mar",
       "icon": "\ud83d\udcd0",
       "schedule": "Weekly \u00b7 Tuesday"
     },
     "sensex": {
-      "phase": "EXPIRY WEEK",
-      "dte": 2,
+      "phase": "EVE",
+      "dte": 1,
       "date": "19 Mar",
-      "icon": "\ud83d\udcb0",
+      "icon": "\u26a0\ufe0f",
       "schedule": "Weekly \u00b7 Thursday (BSE)"
     },
     "banknifty": {
       "phase": "MID SERIES",
-      "dte": 14,
+      "dte": 13,
       "date": "31 Mar",
       "icon": "\ud83d\udcca",
       "schedule": "Monthly \u00b7 Last Tuesday"
     },
     "finnifty": {
       "phase": "MID SERIES",
-      "dte": 14,
+      "dte": 13,
       "date": "31 Mar",
       "icon": "\ud83d\udcca",
       "schedule": "Monthly \u00b7 Last Tuesday"
@@ -134,11 +134,11 @@
     }
   },
   "morning_brief": {
-    "headline": "Markets set for flat open \u2014 VIX 15.0",
-    "deck": "India VIX at 15.0 \u2014 Elevated \u2014 size down. GIFT Nifty gap: +0.00%. Nifty in NEAR EXPIRY.",
+    "headline": "Markets set for gap-up open \u2014 VIX 15.0",
+    "deck": "India VIX at 15.0 \u2014 Elevated \u2014 size down. GIFT Nifty gap: +0.74%. Nifty in NEAR EXPIRY.",
     "trade_focus": "Run OCI to get live wall levels before entering.",
     "entry_window": "9:45 AM \u2013 10:15 AM",
-    "avoid": ""
+    "avoid": "Buying calls at gap-up open \u2014 IV inflated."
   },
   "evening_debrief": {
     "headline": "Evening debrief publishes at 4:30 PM",
