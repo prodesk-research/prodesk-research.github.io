@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-03-18T19:26:19",
+  "generated_at": "2026-03-18T19:31:56",
   "date": "2026-03-18",
   "date_display": "Wednesday, 18 March 2026",
   "edition": "Morning Edition",
   "week_number": 12,
   "site_url": "https://prodesk-research.github.io",
   "bias": {
-    "label": "-2.492",
+    "label": "-2.641",
     "code": "BULL",
     "score": 0.606,
     "confidence": 0,
@@ -19,13 +19,13 @@
       "note": "Primary gap indicator"
     },
     "india_vix": {
-      "value": "108.4800033569336",
+      "value": "108.91999816894531",
       "chg": 0.0,
       "note": "Key risk signal"
     },
     "sp500": {
       "value": "\u2014",
-      "chg": -0.28,
+      "chg": -0.24,
       "note": "US markets"
     },
     "nasdaq": {
@@ -35,12 +35,12 @@
     },
     "crude": {
       "value": "\u2014",
-      "chg": -0.12,
+      "chg": 0.0,
       "note": "Inflation signal"
     },
     "dxy": {
       "value": "\u2014",
-      "chg": -0.26,
+      "chg": -0.2,
       "note": "USD strength"
     },
     "gold": {
@@ -55,12 +55,12 @@
     },
     "nikkei": {
       "value": "\u2014",
-      "chg": 99.59,
+      "chg": 0.0,
       "note": "Japan"
     },
     "hangseng": {
       "value": "\u2014",
-      "chg": 4.89,
+      "chg": 5.32,
       "note": "Hong Kong"
     },
     "dow": {
@@ -134,8 +134,8 @@
     }
   },
   "morning_brief": {
-    "headline": "Markets set for gap-up open \u2014 VIX 108.5",
-    "deck": "India VIX at 108.5 \u2014 HIGH \u2014 avoid buying options. GIFT Nifty gap: +0.83%. Nifty in NEAR EXPIRY.",
+    "headline": "Markets set for gap-up open \u2014 VIX 108.9",
+    "deck": "India VIX at 108.9 \u2014 HIGH \u2014 avoid buying options. GIFT Nifty gap: +0.83%. Nifty in NEAR EXPIRY.",
     "trade_focus": "Run OCI to get live wall levels before entering.",
     "entry_window": "9:45 AM \u2013 10:15 AM",
     "avoid": "Buying calls at gap-up open \u2014 IV inflated."
