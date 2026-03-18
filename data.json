@@ -1,31 +1,31 @@
 {
-  "generated_at": "2026-03-18T18:05:11",
+  "generated_at": "2026-03-18T19:26:19",
   "date": "2026-03-18",
   "date_display": "Wednesday, 18 March 2026",
   "edition": "Morning Edition",
   "week_number": 12,
   "site_url": "https://prodesk-research.github.io",
   "bias": {
-    "label": "-0.196",
-    "code": "NEUTRAL",
-    "score": -0.168,
+    "label": "-2.492",
+    "code": "BULL",
+    "score": 0.606,
     "confidence": 0,
-    "emoji": "\ud83d\udfe1"
+    "emoji": "\ud83d\udfe2"
   },
   "global_cues": {
     "gift_nifty": {
-      "value": "\u2014",
-      "chg": 0.37,
+      "value": "23777.80078125",
+      "chg": 0.83,
       "note": "Primary gap indicator"
     },
     "india_vix": {
-      "value": "\u2014",
+      "value": "108.4800033569336",
       "chg": 0.0,
       "note": "Key risk signal"
     },
     "sp500": {
       "value": "\u2014",
-      "chg": 0.25,
+      "chg": -0.28,
       "note": "US markets"
     },
     "nasdaq": {
@@ -40,7 +40,7 @@
     },
     "dxy": {
       "value": "\u2014",
-      "chg": 0.47,
+      "chg": -0.26,
       "note": "USD strength"
     },
     "gold": {
@@ -49,7 +49,7 @@
       "note": "Risk-off signal"
     },
     "usdinr": {
-      "value": "\u2014",
+      "value": "2.866",
       "chg": 0.0,
       "note": "INR stability"
     },
@@ -60,7 +60,7 @@
     },
     "hangseng": {
       "value": "\u2014",
-      "chg": -2.26,
+      "chg": 4.89,
       "note": "Hong Kong"
     },
     "dow": {
@@ -134,11 +134,11 @@
     }
   },
   "morning_brief": {
-    "headline": "Markets set for gap-up open \u2014 VIX 15.0",
-    "deck": "India VIX at 15.0 \u2014 Elevated \u2014 size down. GIFT Nifty gap: +0.37%. Nifty in NEAR EXPIRY.",
+    "headline": "Markets set for gap-up open \u2014 VIX 108.5",
+    "deck": "India VIX at 108.5 \u2014 HIGH \u2014 avoid buying options. GIFT Nifty gap: +0.83%. Nifty in NEAR EXPIRY.",
     "trade_focus": "Run OCI to get live wall levels before entering.",
     "entry_window": "9:45 AM \u2013 10:15 AM",
-    "avoid": ""
+    "avoid": "Buying calls at gap-up open \u2014 IV inflated."
   },
   "evening_debrief": {
     "headline": "Evening debrief publishes at 4:30 PM",
